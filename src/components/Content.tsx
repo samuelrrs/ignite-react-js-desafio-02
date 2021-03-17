@@ -1,8 +1,17 @@
-import { Button } from "./Button";
+import { MovieCard } from "./MovieCard";
 
 interface ContentProps {
   selectedGenre: {
     title: String;
+  };
+  movies: {
+    title: string;
+    poster: string;
+    ratings: Array<{
+      Source: string;
+      Value: string;
+    }>;
+    runtime: string;
   };
 }
 
@@ -15,17 +24,14 @@ export function Content(props: ContentProps) {
           Categoria:<span> {props.selectedGenre.title}</span>
         </span>
       </header>
-
       <main>
         <div className="movies-list">
-          {/*  {movies.map((movie) => (
           <MovieCard
-          title={movie.Title}
-          poster={movie.Poster}
-          runtime={movie.Runtime}
-          rating={movie.Ratings[0].Value}
-          /> 
-        ))}*/}
+            title={props.movies.title}
+            poster={props.movies.poster}
+            runtime={props.movies.poster}
+            rating={props.movies.ratings[0].Value}
+          />
         </div>
       </main>
     </div>
